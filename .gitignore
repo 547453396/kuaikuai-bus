@@ -1,0 +1,16 @@
+*.iml
+.gradle
+.idea
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+/app/src/androidTest/
+/app/build/
+/app/src/test/
+/app/Test/
+/app/own/
+/app/src/main/java/cn/weli/calculate/dao/

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_white_r16"
+        android:layout_weight="0.9">
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/close_grey"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:textColor="@color/color_494949"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="@dimen/dp_40"
+            android:paddingRight="@dimen/dp_40"
+            android:textSize="24dp"
+            android:text="温馨提示" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="35dp"
+            android:paddingLeft="@dimen/dp_40"
+            android:paddingRight="@dimen/dp_40"
+            tools:text="确定后，跟大师的对话终止，本次咨询服务将结束。"
+            android:textColor="@color/color_91999f"
+            android:textSize="14dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tv_title"/>
+
+        <LinearLayout
+            android:layout_below="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:background="@drawable/shape_g_4facfe_66ccff_lb16_rb16"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/btn_cancel"
+                android:textColor="@color/white_50"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/tv_ok"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/btn_ok"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

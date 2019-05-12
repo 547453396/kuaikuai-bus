@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="trans">#0000</color>
+    <color name="blue">#00a1f2</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="grey">#80000000</color>
+    <color name="light_grey_line">#dedede</color>
+    <color name="white_50">#7fffffff</color>
+    <color name="color_999999">#999999</color>
+    <!-- more -->
+    <color name="gray2">#666666</color>
+    <color name="gray3">#999999</color>
+    <color name="gray4">#bababa</color>
+    <!-- guide -->
+
+
+    <!-- by ww CanlendarShowTypeView -->
+
+    <color name="black_80">#cc000000</color>
+    <color name="black_90">#E6000000</color>
+
+    <!-- by xujun Mc -->
+    <!--插件下载皮肤的界面的颜色值-->
+
+    <color name="white_80">#ccffffff</color>
+
+    <color name="color_f9f9f9">#f9f9f9</color>
+
+
+    <color name="color_efefef">#efefef</color>
+
+    <!--贺岁主题 text color-->
+    <!--贺岁主题 icon color-->
+    <!--空气质量六种颜色-->
+    <!--空气质量详情页六种颜色-->
+
+    <!--记事分类背景的10种颜色-->
+
+    <!--阅读奖励相关颜色-->
+    <!--通讯录新增-->
+    <color name="color_494949">#494949</color>
+    <color name="color_91999f">#91999f</color>
+    <color name="color_ff7c92">#ff7c92</color>
+    <color name="color_ff7c92_10">#1aff7c92</color>
+    <color name="color_ffcd00">#ffcd00</color>
+    <color name="color_66dab5">#66dab5</color>
+    <color name="color_66dab5_10">#1a66dab5</color>
+    <color name="color_f4f6f9">#f4f6f9</color>
+    <color name="color_theme">#4cb5ff</color>
+    <color name="color_theme_10">#1a4cb5ff</color>
+    <color name="color_66ccff">#66ccff</color>
+    <color name="color_d5edff">#d5edff</color>
+    <color name="color_FFAD0B">#FFAD0B</color>
+    <color name="color_FFAD0B_20">#33FFAD0B</color>
+    <color name="color_FFAD0B_10">#1AFFAD0B</color>
+    <color name="color_c9cdce">#c9cdce</color>
+
+    <!--背景色 -->
+    <!--小红点颜色 -->
+    <color name="circle_color">#fd5c77</color>
+</resources>

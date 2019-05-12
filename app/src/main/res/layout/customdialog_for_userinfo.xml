@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_details_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="标题"
+            android:textColor="@color/blue"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:minHeight="80dp">
+
+        <EditText
+            android:id="@+id/et_content1"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/button_bg"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textCursorDrawable="@null"
+            android:singleLine="true"
+            android:textColorHint="@color/gray4"
+            android:textSize="18sp" />
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/color_efefef" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_list_bg"
+            android:gravity="center"
+            android:text="@string/btn_cancel"
+            android:textColor="@color/grey"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="1px"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/color_efefef" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_list_bg"
+            android:gravity="center"
+            android:text="@string/btn_ok"
+            android:textColor="@color/blue"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Loaing页面结束启动到软件主页动画 -->
+<set xmlns:android="http://schemas.android.com/apk/res/android" android:zAdjustment="normal">
+    <alpha android:fromAlpha="1.0" android:toAlpha="1.0"
+        android:fillEnabled="true" android:fillBefore="true" android:fillAfter="true"
+        android:duration="250"/>
+</set>

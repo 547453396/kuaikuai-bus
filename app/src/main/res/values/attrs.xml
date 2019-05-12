@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomCircleView">
+        <attr name="circleColor" format="color" />
+        <attr name="isChecked" format="boolean" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ETIconButtonTextView">
+        <attr name="buttonType" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="wheel_selected_color">
+        <attr name="selectedColor" format="color" />
+        <attr name="textSize" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LoadingView">
+        <attr name="text" format="string" />
+        <attr name="autoAnim" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="TabPageIndicator">
+        <!-- Style of the circle indicator. -->
+        <attr name="vpiCirclePageIndicatorStyle" format="reference" />
+        <!-- Style of the icon indicator's views. -->
+        <attr name="vpiIconPageIndicatorStyle" format="reference" />
+        <!-- Style of the line indicator. -->
+        <attr name="vpiLinePageIndicatorStyle" format="reference" />
+        <!-- Style of the title indicator. -->
+        <attr name="vpiTitlePageIndicatorStyle" format="reference" />
+        <!-- Style of the tab indicator's tabs. -->
+        <attr name="vpiTabPageIndicatorStyle" format="reference" />
+        <!-- Style of the underline indicator. -->
+        <attr name="vpiUnderlinePageIndicatorStyle" format="reference" />
+
+        <attr name="text_selected_color" format="color" />
+        <attr name="text_normal_color" format="color" />
+        <attr name="line_selected_color" format="reference" />
+        <attr name="line_normal_color" format="color" />
+        <attr name="text_selected_size" format="dimension" />
+        <attr name="text_normal_size" format="dimension" />
+        <attr name="indicator_width" format="dimension" />
+        <attr name="indicator_height" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="AutoWrapView">
+        <attr name="horizontal_space" format="dimension" />
+        <attr name="vertical_space" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="RatingBar">
+        <!--星星间距-->
+        <attr name="starDistance" format="dimension" />
+        <!--星星大小-->
+        <attr name="starSize" format="dimension" />
+        <!--星星个数-->
+        <attr name="starCount" format="integer" />
+        <!--星星空图-->
+        <attr name="starEmpty" format="reference" />
+        <!--星星满图-->
+        <attr name="starFill" format="reference" />
+        <attr name="isIntegerMark" format="boolean" />
+        <attr name="isTouchAble" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SpringView">
+        <attr name="type">
+            <enum name="overlap" value="0" />
+            <enum name="follow" value="1" />
+            <enum name="drag" value="2" />
+        </attr>
+        <attr name="give">
+            <enum name="both" value="0" />
+            <enum name="top" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="none" value="3" />
+        </attr>
+        <attr name="header" format="reference" />
+        <attr name="footer" format="reference" />
+    </declare-styleable>
+
+</resources>

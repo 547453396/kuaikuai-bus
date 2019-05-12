@@ -1,0 +1,160 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'com.getkeepsafe.dexcount'
+buildscript {
+    repositories {
+        mavenCentral() // or jcenter()
+    }
+
+    dependencies {
+        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.3'
+    }
+}
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION.toInteger()
+    buildToolsVersion BUILD_TOOLS_VERSION
+    flavorDimensions("WLCC")
+    defaultConfig {
+        applicationId "com.kuaikuai.trip"
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
+        versionCode 1
+        versionName "1.0.0"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled = true
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "own",
+                                UMENG_APP_KEY      : "5b3d7670a40fa30eb60001c4",
+                                MAP_API_KEY        : "77cad2ee0dee44473cc8c406f7605775",
+                                PACKAGE_NAME       : applicationId
+        ]
+        ndk {
+            abiFilters "arm64-v8a", "armeabi-v7a", "x86", "x86_64"
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    signingConfigs {
+        //项目根目录新建gradle.properties 文件，内容如下写上签名
+//        STORE_PASSWORD=***
+//        KEY_ALIAS=***
+//        KEY_PASSWORD=***
+        debug {
+            storeFile file('kuaikuai.keystore')
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+            v2SigningEnabled false
+        }
+        myConfig {
+            storeFile file('kuaikuai.keystore')
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+            v2SigningEnabled false
+        }
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "DEBUG_MODE", "true"
+        }
+        release {
+            buildConfigField "boolean", "DEBUG_MODE", "false"
+            //是否进行混淆
+            minifyEnabled true
+            signingConfig signingConfigs.myConfig
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    def fileName = "${variant.productFlavors[0].name}_Wlcc_v${defaultConfig.versionName}_${defaultConfig.versionCode}_release.apk"
+                    outputFileName = fileName
+                }
+            }
+        }
+    }
+
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+    productFlavors {
+        own {
+            buildConfigField "String", "BASE_URL", "\"https://kuaikuaiapp.com/bus/\""
+            buildConfigField "String", "ORDER_BASE_URL", "\"https://kuaikuaiapp.com/bus/\""
+            //云信正式：219554c62485fd9458690447473edbce
+            //个推-正式
+            //AppID： yT7xdD8Dcv8TLtljUdg0y8
+            //AppSecret： YihU0M6gcd8OH98FgPsQz3
+            //AppKey： NIwuXn5CXu5y6SMPEndsD4
+            manifestPlaceholders = [GETUI_APP_ID    : "yT7xdD8Dcv8TLtljUdg0y8",
+                                    GETUI_APP_KEY   : "NIwuXn5CXu5y6SMPEndsD4",
+                                    GETUI_APP_SECRET: "YihU0M6gcd8OH98FgPsQz3",
+                                    NIM_APP_KEY     : "219554c62485fd9458690447473edbce"
+            ]
+        }
+
+        Test {
+            buildConfigField "String", "BASE_URL", "\"https://kuaikuaiapp.com/bus/\""
+            buildConfigField "String", "ORDER_BASE_URL", "\"https://kuaikuaiapp.com/bus/\""
+            //云信测试：1970694d3d2e7a14d0faca4266978f61
+            //个推-测试
+            //AppID： qjN3uw3i489IXACvAT8Kl
+            //AppSecret： K1nINrPNkIAfljlcv6HcI5
+            //AppKey： gtGWL3qNIu6ZU6mm0Zg8E7
+            manifestPlaceholders = [GETUI_APP_ID    : "qjN3uw3i489IXACvAT8Kl",
+                                    GETUI_APP_KEY   : "gtGWL3qNIu6ZU6mm0Zg8E7",
+                                    GETUI_APP_SECRET: "K1nINrPNkIAfljlcv6HcI5",
+                                    NIM_APP_KEY     : "1970694d3d2e7a14d0faca4266978f61"
+            ]
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    greendao {
+        schemaVersion 1
+        daoPackage 'cn.kuaikuai.trip.dao'
+        targetGenDir 'src/main/java'
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation project(':base')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation "com.android.support:appcompat-v7:${SUPPORT_LIB_VERSION}"
+    implementation "com.android.support:design:${SUPPORT_LIB_VERSION}"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTERKNIFE}"
+    /** Ping++支付  */
+    // 必须添加
+    implementation 'com.pingxx:pingpp-core:2.1.18'
+    // 使用支付宝支付时添加
+    implementation 'com.pingxx:pingpp-alipay:2.1.18'
+    // 微信
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.3.4'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+    //个推
+    implementation 'com.getui:sdk-for-google-play:4.3.0.0'
+    //个像
+    //    implementation 'com.getui:gisdk:3.1.0'
+    // 个数
+    implementation 'com.getui:gssdk:2.2.0.2'
+    //    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    // 基础功能 (必需)
+    implementation 'com.netease.nimlib:basesdk:5.1.1'
+}

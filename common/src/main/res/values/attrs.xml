@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Module_Common_ETImageView">
+        <attr name="mode">
+            <enum name="normal" value="0" />
+            <enum name="circle" value="1" />
+            <enum name="rounded" value="2" />
+        </attr>
+        <attr name="ratio" format="float" />
+        <attr name="border_color" format="color" />
+        <attr name="border_width" format="dimension" />
+        <attr name="round_size" format="integer" />
+    </declare-styleable>
+</resources>
