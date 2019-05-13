@@ -295,6 +295,47 @@ public class UserAccountPreferences {
         return 0;
     }
 
+    public void setWxNickName(String wxNickName) {
+        DBHelper.insertUserInfo("wx_nick_name", wxNickName);
+    }
+
+    public String getWxNickName() {
+        return DBHelper.getUserInfoByKey("wx_nick_name");
+    }
+
+
+    public void setWxAvatar(String wxAvatar) {
+        DBHelper.insertUserInfo("wx_avatar", wxAvatar);
+    }
+
+    public String getWxAvatar() {
+        return DBHelper.getUserInfoByKey("wx_avatar");
+    }
+
+    public void setWxOpenid(String wxOpenid) {
+        DBHelper.insertUserInfo("wx_open_id", wxOpenid);
+    }
+
+    public String getWxOpenid() {
+        return DBHelper.getUserInfoByKey("wx_open_id");
+    }
+
+    public void setWxUnionId(String wxUnionid) {
+        DBHelper.insertUserInfo("wx_union_id", wxUnionid);
+    }
+
+    public String getWxUnionId() {
+        return DBHelper.getUserInfoByKey("wx_union_id");
+    }
+
+    public void setWxAccount(String wxUnionid) {
+        DBHelper.insertUserInfo("wx_account", wxUnionid);
+    }
+
+    public String getWxAccount() {
+        return DBHelper.getUserInfoByKey("wx_account");
+    }
+
     public void cleanUserInfo(){
         DBHelper.cleanUserInfo();
     }

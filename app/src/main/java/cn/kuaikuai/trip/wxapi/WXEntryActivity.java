@@ -18,11 +18,11 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 import cn.kuaikuai.base.activity.BaseActivity;
+import cn.kuaikuai.common.net.api.ApiManage;
 import cn.kuaikuai.trip.constant.WlConfig;
 import cn.kuaikuai.trip.event.ShareEvent;
 import cn.kuaikuai.trip.event.WXLoginEvent;
 import cn.kuaikuai.trip.utils.WXPreferences;
-import cn.kuaikuai.common.net.api.ApiManage;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -130,7 +130,7 @@ public class WXEntryActivity extends BaseActivity implements IWXAPIEventHandler 
                             JSONObject object = new JSONObject(result);
                             if (!TextUtils.isEmpty(object.optString("access_token"))
                                     && !TextUtils.isEmpty(object.optString("openid"))) {
-                                EventBus.getDefault().post(new WXLoginEvent());
+                                EventBus.getDefault().post(new WXLoginEvent(WXLoginEvent.RESULT_OK));
                                 finish();
                             }
                         } catch (Exception e) {

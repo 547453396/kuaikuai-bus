@@ -36,17 +36,13 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
 
+import cn.kuaikuai.common.ChannelUtil;
+import cn.kuaikuai.common.NetUtils;
 import cn.kuaikuai.trip.R;
-import cn.kuaikuai.trip.net.ApiInterface;
 import cn.kuaikuai.trip.utils.PackageHelper;
 import cn.kuaikuai.trip.utils.SpUtils;
 import cn.kuaikuai.trip.utils.UserAccountPreferences;
 import cn.kuaikuai.trip.utils.UtilsManager;
-import cn.kuaikuai.common.ChannelUtil;
-import cn.kuaikuai.common.NetUtils;
-import cn.kuaikuai.common.net.api.ApiManage;
-import cn.kuaikuai.common.net.callback.ApiCallback;
-import cn.kuaikuai.common.net.exception.ApiException;
 
 /**
  * Created by etouch on 14/12/3.
@@ -248,50 +244,6 @@ public class ETWebView extends WebView implements View.OnLongClickListener {
     };
 
     private final String ADJsString = "ADJsString", ADJsTime = "ADJsTime";
-
-    /**
-     * 设置加载完毕时是否要加载去广告js
-     */
-    public void setIsNeedLoadRemoveAdJs(Activity act, boolean isNeedLoadRemoveAdJs) {
-        this.mActivity = act;
-        this.isNeedLoadRemoveAdJs = isNeedLoadRemoveAdJs;
-        if (isNeedLoadRemoveAdJs) {
-            getJsString();
-            js = "javascript:" + SpUtils.getInstance(getContext()).getSharedPreference(ADJsString, "");
-        }
-    }
-
-    private void getJsString() {
-        final SpUtils spUtils = SpUtils.getInstance(getContext());
-        if (System.currentTimeMillis() >= (long) spUtils.getSharedPreference(ADJsTime, 0l)) {
-            ApiManage.getInstance().get(ApiInterface.JSSTRINGURL, new HashMap<String, Object>(), new ApiCallback<String>() {
-                @Override
-                public void onStart() {
-
-                }
-
-                @Override
-                public void onError(ApiException e) {
-
-                }
-
-                @Override
-                public void onCompleted() {
-
-                }
-
-                @Override
-                public void onNext(String result) {
-                    if (!TextUtils.isEmpty(result)) {
-                        long temp = 24 * 60 * 60 * 1000;
-                        spUtils.put(ADJsTime, System.currentTimeMillis() + temp);
-                        spUtils.put(ADJsString, result);
-                        js = "javascript:" + result;
-                    }
-                }
-            });
-        }
-    }
 
     /**
      * 用于处理返回时由于重定向而产生的死循环start============

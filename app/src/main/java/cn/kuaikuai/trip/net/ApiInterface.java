@@ -16,14 +16,23 @@ public interface ApiInterface {
     String DEFAULT_BASE_URL = BuildConfig.BASE_URL;
 
     /**
-     * 天气定位接口
+     * 登录及用户信息相关接口
+     * 获取验证码；验证码登录；微信登录；绑定手机号；绑定微信；获取/更新用户信息；登出
      */
-    String CITY_URL = "https://weather.weilitoutiao.net/Ecalender/api/city";
-    /**
-     * 软件中webView加载的js,作用是是去除页面广告、插入native广告
-     */
-    String JSSTRINGURL = "https://static.weilitoutiao.net/apis/toolkit.js";
-
+    interface LoginApi {
+        String GET_VERIFY_CODE = "api/verify_code/get";
+        String LOGIN_VERIFY_CODE = "api/verify_code/login";
+        String LOGIN_TB = "api/tb/login";
+        String MERGE_ACCOUNT = "api/auth/bind";
+        String BIND_TEL = "api/auth/bind/tel";
+        String BIND_TB = "api/auth/bind/tb";
+        String BIND_WX = "api/auth/bind/wx";
+        String BIND_ALIPAY = "api/auth/bind/alipay";
+        String USER_API = "api/auth/user";
+        String LOGOUT = "api/auth/logout";
+        String LOGIN_WX = "api/wx/login";
+        String USER_INFO_API = "api/auth/user/info";
+    }
 
 }
 

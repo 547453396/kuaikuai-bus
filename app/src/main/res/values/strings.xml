@@ -2,6 +2,24 @@
     <string name="app_name">筷筷BUS</string>
     <string name="WXNotInstalled">系统未安装微信客户端</string>
 
+    <string name="login_app_phone">手机号快捷登录</string>
+    <string name="enter_phone_num_hint">请输入手机号</string>
+    <string name="enter_identify_hint">请输入验证码</string>
+    <string name="btn_identify">获取验证码</string>
+    <string name="str_login">立即登录</string>
+    <string name="login_tips">未注册的手机号验证后将自动创建账号</string>
+    <string name="wx_login">微信一键登录</string>
+    <string name="str_enter_app">进入筷筷BUS</string>
+    <string name="str_user_agreement"><u>《用户协议》</u></string>
+    <string name="server_error">非常抱歉，服务器异常，稍后请重试</string>
+    <string name="identify_ing">正在获取</string>
+    <string name="canNotNull">内容不能为空</string>
+    <string name="phoneCanNotNull">手机号码不能为空</string>
+    <string name="identityCanNotNull">验证码不能为空</string>
+    <string name="errorPhoneNum">错误的手机号码,请重新输入</string>
+    <string name="identify_again">重新获取</string>
+    <string name="sec">秒</string>
+
     <!--个人中心-->
     <string name="select_date_title">选择日期</string>
     <string name="am" translatable="false">AM</string>

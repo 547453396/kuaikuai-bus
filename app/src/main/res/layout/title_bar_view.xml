@@ -12,6 +12,15 @@
         style="@style/nav_btn_text_style"
         app:buttonType="2" />
 
+    <cn.kuaikuai.common.image.ETNetImageView
+        android:id="@+id/et_icon"
+        android:src="@drawable/person_default"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp" />
+
     <TextView
         android:id="@+id/tv_title"
         style="@style/nav_text_style"

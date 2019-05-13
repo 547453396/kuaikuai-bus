@@ -15,8 +15,9 @@
     <color name="gray4">#bababa</color>
     <!-- guide -->
 
-
-    <!-- by ww CanlendarShowTypeView -->
+    <color name="color_333333">#333333</color>
+    <color name="color_EAEAEA">#EAEAEA</color>
+    <color name="color_666666">#666666</color>
 
     <color name="black_80">#cc000000</color>
     <color name="black_90">#E6000000</color>
