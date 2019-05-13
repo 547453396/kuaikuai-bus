@@ -21,7 +21,7 @@ public interface ApiInterface {
      */
     interface LoginApi {
         String GET_VERIFY_CODE = "api/verify_code/get";
-        String LOGIN_VERIFY_CODE = "api/verify_code/login";
+        String DRIVER_REGISTER = "user/driver/register";
         String LOGIN_TB = "api/tb/login";
         String MERGE_ACCOUNT = "api/auth/bind";
         String BIND_TEL = "api/auth/bind/tel";

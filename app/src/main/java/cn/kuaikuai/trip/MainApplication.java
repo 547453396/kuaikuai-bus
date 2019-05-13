@@ -8,6 +8,9 @@ import android.util.Log;
 import com.getui.gs.ias.core.GsConfig;
 import com.getui.gs.sdk.GsManager;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import cn.kuaikuai.base.BaseApplication;
 import cn.kuaikuai.common.ChannelUtil;
 import cn.kuaikuai.common.LogUtils;
@@ -44,9 +47,13 @@ public class MainApplication extends BaseApplication {
         long time = System.currentTimeMillis();
         application = this;
 
-//        initDao();
+        initDao();
         if (checkMainProgress(getApplicationContext())) {
-            ApiManage.initApiManage(getApplicationContext(), ApiInterface.DEFAULT_BASE_URL, null);
+            Map<String, String> headers = new HashMap<>();
+            headers.put("key","bus-token");
+            headers.put("type","text");
+            headers.put("value","bus-token");
+            ApiManage.initApiManage(getApplicationContext(), ApiInterface.DEFAULT_BASE_URL, headers);
             DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
             screenWidth = dm.widthPixels;
             screenHeight = dm.heightPixels;

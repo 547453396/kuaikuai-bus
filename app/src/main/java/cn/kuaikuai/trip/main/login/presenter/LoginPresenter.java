@@ -4,6 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import org.greenrobot.eventbus.EventBus;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 
@@ -74,11 +76,16 @@ public class LoginPresenter {
 
     public void loginWithPhone(String phone, String identity, boolean from_task) {
         HashMap<String, Object> table = new HashMap<>();
-        table.put("tel", phone);
-        table.put("area_code", "86");
-        table.put("ticket", identity);
-        ApiUtils.addCommonParams(ctx, table);
-        loginModel.loginWithPhone(table, new LoginObserver(LoginObserver.LOGIN_TYPE_PHONE, from_task));
+        JSONObject body = new JSONObject();
+        try {
+            body.put("mode","raw");
+            JSONObject raw = new JSONObject();
+            raw.put("mobilePhone",phone);
+            body.put("raw",raw);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        loginModel.loginWithPhone(table, body.toString(), new LoginObserver(LoginObserver.LOGIN_TYPE_PHONE, from_task));
     }
 
     public void loginWithTb(String nick_name, String avatar, String openid, String open_sid, boolean from_task) {

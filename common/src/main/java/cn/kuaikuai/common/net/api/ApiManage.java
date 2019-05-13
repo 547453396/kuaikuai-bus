@@ -67,7 +67,7 @@ public class ApiManage {
                     ApiManage apiManage = new ApiManage();
                     Builder builder = new Builder(context);
                     builder.baseUrl(baseUrl);
-//                    builder.headers(headers);
+                    builder.headers(headers);
                     Retrofit retrofit = builder.build();
                     apiManage.apiService = retrofit.create(ApiService.class);
                     sApimanage = apiManage;

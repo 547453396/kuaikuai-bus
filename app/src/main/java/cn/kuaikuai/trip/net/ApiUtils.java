@@ -38,52 +38,52 @@ public class ApiUtils {
      */
     public static void addCommonParams(Context ctx, Map<String, Object> table) {
         if (table != null) {
-            UserAccountPreferences userAccountPreferences = UserAccountPreferences.getInstance(ctx);
-            if (!table.containsKey(NetParamsConstant.APP_KEY)) {
-                table.put(NetParamsConstant.APP_KEY, WlConfig.appkey);
-            }
-            if (!table.containsKey(NetParamsConstant.APP_TS)) {
-                table.put(NetParamsConstant.APP_TS, System.currentTimeMillis());
-            }
-            if (!table.containsKey(NetParamsConstant.UID)) {
-                table.put(NetParamsConstant.UID, userAccountPreferences.getUid());
-            }
-            if (!table.containsKey(NetParamsConstant.ACCTK)) {
-                table.put(NetParamsConstant.ACCTK, UserAccountPreferences.getInstance(ctx).getAcctk());
-            }
-            PackageHelper packageHelper = new PackageHelper(ctx);
-            if (!table.containsKey(NetParamsConstant.VER_CODE)) {
-                table.put(NetParamsConstant.VER_CODE, packageHelper.getLocalVersionCode() + "");
-            }
-            if (!table.containsKey(NetParamsConstant.VER_NAME)) {
-                table.put(NetParamsConstant.VER_NAME, packageHelper.getLocalVersionName());
-            }
-            if (!table.containsKey(NetParamsConstant.CHANNEL)) {
-                table.put(NetParamsConstant.CHANNEL, ChannelUtil.getChannel(ctx));
-            }
-            if (!table.containsKey(NetParamsConstant.CITY_KEY)) {
-                String location = DBHelper.getCacheDataByKey(KeyConstant.LOCATION);
-                JSONObject jsonObject = null;
-                String cityKey = "";
-                try {
-                    jsonObject = new JSONObject(location);
-                    cityKey = jsonObject.optString("cityKey1", "");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                table.put(NetParamsConstant.CITY_KEY, cityKey);
-            }
-            if (!table.containsKey(NetParamsConstant.OS_VERSION)) {
-                table.put(NetParamsConstant.OS_VERSION, packageHelper.getOSVersion() + "");
-            }
-            if (!table.containsKey(NetParamsConstant.DEVICE_ID)) {
-                String device_id = SpUtils.getInstance(ctx).getImei() + SpUtils.getInstance(ctx).getMac();
-                device_id = UtilsManager.getMD5(device_id.getBytes());
-                table.put(NetParamsConstant.DEVICE_ID, device_id);
-            }
-            if (!table.containsKey(NetParamsConstant.APP_SIGN)) {
-                table.put(NetParamsConstant.APP_SIGN, getTheAppSign(table));
-            }
+//            UserAccountPreferences userAccountPreferences = UserAccountPreferences.getInstance(ctx);
+//            if (!table.containsKey(NetParamsConstant.APP_KEY)) {
+//                table.put(NetParamsConstant.APP_KEY, WlConfig.appkey);
+//            }
+//            if (!table.containsKey(NetParamsConstant.APP_TS)) {
+//                table.put(NetParamsConstant.APP_TS, System.currentTimeMillis());
+//            }
+//            if (!table.containsKey(NetParamsConstant.UID)) {
+//                table.put(NetParamsConstant.UID, userAccountPreferences.getUid());
+//            }
+//            if (!table.containsKey(NetParamsConstant.ACCTK)) {
+//                table.put(NetParamsConstant.ACCTK, UserAccountPreferences.getInstance(ctx).getAcctk());
+//            }
+//            PackageHelper packageHelper = new PackageHelper(ctx);
+//            if (!table.containsKey(NetParamsConstant.VER_CODE)) {
+//                table.put(NetParamsConstant.VER_CODE, packageHelper.getLocalVersionCode() + "");
+//            }
+//            if (!table.containsKey(NetParamsConstant.VER_NAME)) {
+//                table.put(NetParamsConstant.VER_NAME, packageHelper.getLocalVersionName());
+//            }
+//            if (!table.containsKey(NetParamsConstant.CHANNEL)) {
+//                table.put(NetParamsConstant.CHANNEL, ChannelUtil.getChannel(ctx));
+//            }
+//            if (!table.containsKey(NetParamsConstant.CITY_KEY)) {
+//                String location = DBHelper.getCacheDataByKey(KeyConstant.LOCATION);
+//                JSONObject jsonObject = null;
+//                String cityKey = "";
+//                try {
+//                    jsonObject = new JSONObject(location);
+//                    cityKey = jsonObject.optString("cityKey1", "");
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//                table.put(NetParamsConstant.CITY_KEY, cityKey);
+//            }
+//            if (!table.containsKey(NetParamsConstant.OS_VERSION)) {
+//                table.put(NetParamsConstant.OS_VERSION, packageHelper.getOSVersion() + "");
+//            }
+//            if (!table.containsKey(NetParamsConstant.DEVICE_ID)) {
+//                String device_id = SpUtils.getInstance(ctx).getImei() + SpUtils.getInstance(ctx).getMac();
+//                device_id = UtilsManager.getMD5(device_id.getBytes());
+//                table.put(NetParamsConstant.DEVICE_ID, device_id);
+//            }
+//            if (!table.containsKey(NetParamsConstant.APP_SIGN)) {
+//                table.put(NetParamsConstant.APP_SIGN, getTheAppSign(table));
+//            }
         }
     }
 

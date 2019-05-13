@@ -21,8 +21,8 @@ public class LoginModel extends BaseModel {
         subscribe(ApiManage.getInstance().post(ApiInterface.LoginApi.GET_VERIFY_CODE, parameters, VerifyCodeBean.class), observer);
     }
 
-    public void loginWithPhone(Map<String, Object> parameters, Observer<LoginBean> observer) {
-        subscribe(ApiManage.getInstance().post(ApiInterface.LoginApi.LOGIN_VERIFY_CODE, parameters, LoginBean.class), observer);
+    public void loginWithPhone(Map<String, Object> parameters,String body, Observer<LoginBean> observer) {
+        subscribe(ApiManage.getInstance().body(ApiInterface.LoginApi.DRIVER_REGISTER, body,parameters, LoginBean.class), observer);
     }
 
     public void loginWithTb(Map<String, Object> parameters, Observer<LoginBean> observer) {
