@@ -33,7 +33,7 @@ public class LoginModel extends BaseModel {
         subscribe(ApiManage.getInstance().post(ApiInterface.LoginApi.LOGIN_WX, parameters, LoginBean.class), observer);
     }
 
-    public void getUserInfo(Map<String, Object> parameters, Observer<UserAccountBean> observer) {
-        subscribe(ApiManage.getInstance().apiGet(ApiInterface.LoginApi.USER_API, parameters, UserAccountBean.class), observer);
+    public void getUserInfo(Map<String, Object> parameters, Observer<LoginBean> observer) {
+        subscribe(ApiManage.getInstance().post(ApiInterface.LoginApi.DRIVER_GET, parameters, LoginBean.class), observer);
     }
 }

@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import java.io.File;
 import java.net.Proxy;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -55,6 +56,7 @@ public class ApiManage {
 
     private static Context context;
     private static ApiManage sApimanage;
+    private static Builder builder;
     private ApiService apiService;
 
     /**
@@ -65,15 +67,17 @@ public class ApiManage {
             synchronized (ApiManage.class) {
                 if (sApimanage == null) {
                     ApiManage apiManage = new ApiManage();
-                    Builder builder = new Builder(context);
+                    if (builder == null){
+                        builder = new Builder(context);
+                    }
                     builder.baseUrl(baseUrl);
-                    builder.headers(headers);
                     Retrofit retrofit = builder.build();
                     apiManage.apiService = retrofit.create(ApiService.class);
                     sApimanage = apiManage;
                 }
             }
         }
+        builder.headers(headers);
     }
 
     public static ApiManage getInstance() {

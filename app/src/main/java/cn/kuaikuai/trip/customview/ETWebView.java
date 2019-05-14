@@ -156,8 +156,8 @@ public class ETWebView extends WebView implements View.OnLongClickListener {
             sb.append(" net/wifi");
         }
         UserAccountPreferences userAccountPreferences = UserAccountPreferences.getInstance(getContext());
-        if (!TextUtils.isEmpty(userAccountPreferences.getOpenId())) {
-            sb.append(" open_id/").append(userAccountPreferences.getOpenId());
+        if (!TextUtils.isEmpty(userAccountPreferences.getToken())) {
+            sb.append(" open_id/").append(userAccountPreferences.getToken());
         }
         sb.append(" device_id/");
         String device_id = SpUtils.getInstance(ctx).getImei() + SpUtils.getInstance(ctx).getMac();

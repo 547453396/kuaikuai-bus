@@ -19,15 +19,15 @@ public class UserAccountPreferences {
         return instance;
     }
 
-    public String getOpenId() {
-        return DBHelper.getUserInfoByKey("openId");
+    public String getToken() {
+        return DBHelper.getUserInfoByKey("token");
     }
 
-    public void setOpenId(String openId) {
-        if (TextUtils.isEmpty(openId)) {
-            openId = "";
+    public void setToken(String token) {
+        if (TextUtils.isEmpty(token)) {
+            token = "";
         }
-        DBHelper.insertUserInfo("openId", openId + "");
+        DBHelper.insertUserInfo("token", token + "");
     }
 
     public int getSex() {
@@ -78,23 +78,6 @@ public class UserAccountPreferences {
             avatar = "";
         }
         DBHelper.insertUserInfo("avatar", avatar + "");
-    }
-
-    public long getUid() {
-        String result = DBHelper.getUserInfoByKey("uid");
-        if (!TextUtils.isEmpty(result)) {
-            try {
-                return Long.parseLong(result);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
-            }
-        }
-        return 0;
-    }
-
-    public void setUid(long uid) {
-        DBHelper.insertUserInfo("uid", uid + "");
     }
 
     public String getMobilePhone() {

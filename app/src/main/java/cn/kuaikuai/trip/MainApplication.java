@@ -2,6 +2,7 @@ package cn.kuaikuai.trip;
 
 import android.content.Context;
 import android.support.multidex.MultiDex;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
@@ -21,6 +22,7 @@ import cn.kuaikuai.trip.dao.DaoSession;
 import cn.kuaikuai.trip.event.WXLoginEvent;
 import cn.kuaikuai.trip.model.entity.DBHelper;
 import cn.kuaikuai.trip.net.ApiInterface;
+import cn.kuaikuai.trip.utils.UserAccountPreferences;
 import cn.kuaikuai.trip.utils.UtilsManager;
 
 /**
@@ -50,9 +52,9 @@ public class MainApplication extends BaseApplication {
         initDao();
         if (checkMainProgress(getApplicationContext())) {
             Map<String, String> headers = new HashMap<>();
-            headers.put("key","bus-token");
-            headers.put("type","text");
-            headers.put("value","bus-token");
+            if (!TextUtils.isEmpty(UserAccountPreferences.getInstance(this).getToken())){
+                headers.put("bus-token", UserAccountPreferences.getInstance(this).getToken());
+            }
             ApiManage.initApiManage(getApplicationContext(), ApiInterface.DEFAULT_BASE_URL, headers);
             DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
             screenWidth = dm.widthPixels;

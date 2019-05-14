@@ -22,16 +22,10 @@ public interface ApiInterface {
     interface LoginApi {
         String GET_VERIFY_CODE = "api/verify_code/get";
         String DRIVER_REGISTER = "user/driver/register";
+        String DRIVER_GET = "user/driver/get";
         String LOGIN_TB = "api/tb/login";
-        String MERGE_ACCOUNT = "api/auth/bind";
-        String BIND_TEL = "api/auth/bind/tel";
-        String BIND_TB = "api/auth/bind/tb";
-        String BIND_WX = "api/auth/bind/wx";
-        String BIND_ALIPAY = "api/auth/bind/alipay";
         String USER_API = "api/auth/user";
-        String LOGOUT = "api/auth/logout";
         String LOGIN_WX = "api/wx/login";
-        String USER_INFO_API = "api/auth/user/info";
     }
 
 }

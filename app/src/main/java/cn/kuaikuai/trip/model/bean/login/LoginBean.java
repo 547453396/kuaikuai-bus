@@ -1,97 +1,172 @@
 package cn.kuaikuai.trip.model.bean.login;
 
 public class LoginBean {
+
     /**
-     * status : 1000
-     * desc :
-     * data : {"uid":1,"alias":"303ff933a7844f4abc75af45edad237b","acctk":"0.0769454723567875:1.1541555525680","open_id":"6a0d9fb2810e86f0"}
+     * msg : ok
+     * code : 200
+     * data : {"career":null,"signature":null,"nickName":null,"sex":null,"headUrl":null,"updateTime":null,"type":null,"token":"74587f0e252c4656849b9f6da7b3896d","mobilePhone":"15996367215","createTime":null,"id":100003,"age":null,"status":"open"}
      */
+    private String msg;
+    private String code;
+    private DataEntity data;
 
-    private int status;
-    private String desc;
-    private DataBean data;
-
-    public int getStatus() {
-        return status;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public DataBean getData() {
-        return data;
-    }
-
-    public void setData(DataBean data) {
+    public void setData(DataEntity data) {
         this.data = data;
     }
 
-    public static class DataBean {
-        /**
-         * uid : 1
-         * alias : 303ff933a7844f4abc75af45edad237b
-         * acctk : 0.0769454723567875:1.1541555525680
-         * open_id : 6a0d9fb2810e86f0
-         */
-
-        private long uid;
-        private String alias;
-        private String acctk;
-        private String open_id;
-        private boolean new_user;
-
-        public long getUid() {
-            return uid;
-        }
-
-        public void setUid(long uid) {
-            this.uid = uid;
-        }
-
-        public String getAlias() {
-            return alias;
-        }
-
-        public void setAlias(String alias) {
-            this.alias = alias;
-        }
-
-        public String getAcctk() {
-            return acctk;
-        }
-
-        public void setAcctk(String acctk) {
-            this.acctk = acctk;
-        }
-
-        public String getOpen_id() {
-            return open_id;
-        }
-
-        public void setOpen_id(String open_id) {
-            this.open_id = open_id;
-        }
-
-        public boolean isNew_user() {
-            return new_user;
-        }
-
-        public void setNew_user(boolean new_user) {
-            this.new_user = new_user;
-        }
+    public String getMsg() {
+        return msg;
     }
 
-    public static class IMBean {
-        public String accid;
-        public String token;
+    public String getCode() {
+        return code;
+    }
+
+    public DataEntity getData() {
+        return data;
+    }
+
+    public class DataEntity {
+        /**
+         * career : null
+         * signature : null
+         * nickName : null
+         * sex : null
+         * headUrl : null
+         * updateTime : null
+         * type : null
+         * token : 74587f0e252c4656849b9f6da7b3896d
+         * mobilePhone : 15996367215
+         * createTime : null
+         * id : 100003
+         * age : null
+         * status : open
+         */
+        private String career;
+        private String signature;
+        private String nickName;
+        private String sex;
+        private String headUrl;
+        private String updateTime;
+        private String type;
+        private String token;
+        private String mobilePhone;
+        private String createTime;
+        private int id;
+        private String age;
+        private String status;
+
+        public void setCareer(String career) {
+            this.career = career;
+        }
+
+        public void setSignature(String signature) {
+            this.signature = signature;
+        }
+
+        public void setNickName(String nickName) {
+            this.nickName = nickName;
+        }
+
+        public void setSex(String sex) {
+            this.sex = sex;
+        }
+
+        public void setHeadUrl(String headUrl) {
+            this.headUrl = headUrl;
+        }
+
+        public void setUpdateTime(String updateTime) {
+            this.updateTime = updateTime;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
+        }
+
+        public void setMobilePhone(String mobilePhone) {
+            this.mobilePhone = mobilePhone;
+        }
+
+        public void setCreateTime(String createTime) {
+            this.createTime = createTime;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public void setAge(String age) {
+            this.age = age;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+
+        public String getCareer() {
+            return career;
+        }
+
+        public String getSignature() {
+            return signature;
+        }
+
+        public String getNickName() {
+            return nickName;
+        }
+
+        public String getSex() {
+            return sex;
+        }
+
+        public String getHeadUrl() {
+            return headUrl;
+        }
+
+        public String getUpdateTime() {
+            return updateTime;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public String getMobilePhone() {
+            return mobilePhone;
+        }
+
+        public String getCreateTime() {
+            return createTime;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getAge() {
+            return age;
+        }
+
+        public String getStatus() {
+            return status;
+        }
     }
 }

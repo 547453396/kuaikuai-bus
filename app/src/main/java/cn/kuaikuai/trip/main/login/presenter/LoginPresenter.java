@@ -3,19 +3,20 @@ package cn.kuaikuai.trip.main.login.presenter;
 import android.content.Context;
 import android.text.TextUtils;
 
-import org.greenrobot.eventbus.EventBus;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Map;
 
+import cn.kuaikuai.common.net.api.ApiManage;
 import cn.kuaikuai.trip.R;
-import cn.kuaikuai.trip.event.UserLoginStatusEvent;
 import cn.kuaikuai.trip.main.login.model.LoginModel;
 import cn.kuaikuai.trip.main.login.view.ILoginView;
 import cn.kuaikuai.trip.model.bean.login.LoginBean;
 import cn.kuaikuai.trip.model.bean.login.UserAccountBean;
 import cn.kuaikuai.trip.model.bean.login.VerifyCodeBean;
+import cn.kuaikuai.trip.net.ApiInterface;
 import cn.kuaikuai.trip.net.ApiUtils;
 import cn.kuaikuai.trip.utils.UserAccountPreferences;
 import cn.kuaikuai.trip.utils.WXPreferences;
@@ -78,10 +79,7 @@ public class LoginPresenter {
         HashMap<String, Object> table = new HashMap<>();
         JSONObject body = new JSONObject();
         try {
-            body.put("mode","raw");
-            JSONObject raw = new JSONObject();
-            raw.put("mobilePhone",phone);
-            body.put("raw",raw);
+            body.put("mobilePhone",phone);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -124,26 +122,24 @@ public class LoginPresenter {
         @Override
         public void onCompleted() {
             if (bean != null) {
-                if (bean.getStatus() == 1000) {
+                if ("200".equals(bean.getCode())) {
                     UserAccountPreferences accountPreferences = UserAccountPreferences.getInstance(ctx);
                     if (bean.getData() != null) {
-                        long uid = bean.getData().getUid();
-                        accountPreferences.setUid(uid);
-                        accountPreferences.setAcctk(bean.getData().getAcctk());
-                        accountPreferences.setOpenId(bean.getData().getOpen_id());
-                        accountPreferences.setAlias(bean.getData().getAlias());
-                        getUserInfo(uid, mLoginType, from_task);
-                    }
-                    //风控提示 用户登录后，给一条toast：账号存在安全问题，请联系客服
-                    if (!TextUtils.isEmpty(bean.getDesc()) && loginView != null) {
-                        loginView.onLoginFailed(bean.getDesc());
+                        accountPreferences.setToken(bean.getData().getToken());
+                        accountPreferences.setMobilePhone(bean.getData().getMobilePhone());
+                        Map<String, String> headers = new HashMap<>();
+                        if (!TextUtils.isEmpty(UserAccountPreferences.getInstance(ctx).getToken())){
+                            headers.put("bus-token", UserAccountPreferences.getInstance(ctx).getToken());
+                            ApiManage.initApiManage(ctx, ApiInterface.DEFAULT_BASE_URL, null);
+                        }
+                        getUserInfo();
                     }
                 } else {
                     if (loginView != null) {
-                        if (TextUtils.isEmpty(bean.getDesc())) {
+                        if (TextUtils.isEmpty(bean.getMsg())) {
                             loginView.onLoginFailed(ctx.getString(R.string.server_error));
                         } else {
-                            loginView.onLoginFailed(bean.getDesc());
+                            loginView.onLoginFailed(bean.getMsg());
                         }
                     }
                 }
@@ -167,22 +163,16 @@ public class LoginPresenter {
         }
     }
 
-    private void getUserInfo(final long uid, final int loginType, final boolean from_task) {
+    private void getUserInfo() {
         HashMap<String, Object> table = new HashMap<>();
-        table.put("uid", uid);
-        ApiUtils.addCommonParams(ctx, table);
-        loginModel.getUserInfo(table, new Observer<UserAccountBean>() {
-            UserAccountBean userAccountBean;
+        loginModel.getUserInfo(table, new Observer<LoginBean>() {
+            LoginBean loginBean;
 
             @Override
             public void onCompleted() {
                 UserAccountPreferences accountPreferences = UserAccountPreferences.getInstance(ctx);
-                if (userAccountBean != null) {
-                    saveUserInfo(userAccountBean, accountPreferences);
-                    if (loginView != null) {
-                        loginView.onLoginSucceed();
-                    }
-                    EventBus.getDefault().post(new UserLoginStatusEvent(UserLoginStatusEvent.type_user_login, from_task));
+                if (loginBean != null) {
+
                 } else {
                     accountPreferences.cleanUserInfo();
                     if (loginView != null) {
@@ -201,8 +191,8 @@ public class LoginPresenter {
             }
 
             @Override
-            public void onNext(UserAccountBean userAccountBean) {
-                this.userAccountBean = userAccountBean;
+            public void onNext(LoginBean userAccountBean) {
+                this.loginBean = userAccountBean;
             }
         });
     }
