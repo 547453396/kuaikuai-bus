@@ -59,6 +59,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:visibility="gone"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="15dp"
             android:gravity="center_vertical"
@@ -114,6 +115,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1px"
+            android:visibility="gone"
             android:background="@color/color_EAEAEA" />
 
         <Button
@@ -134,6 +136,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/login_other"
+        android:visibility="gone"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:orientation="horizontal">
@@ -168,6 +171,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/ll_bottom"
+        android:visibility="gone"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
         android:gravity="center"
@@ -191,6 +195,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:visibility="gone"
         android:orientation="horizontal"
         android:paddingTop="@dimen/dimen_10"
         android:paddingBottom="30dp">

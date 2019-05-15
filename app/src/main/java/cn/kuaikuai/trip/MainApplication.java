@@ -6,14 +6,10 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
-import com.getui.gs.ias.core.GsConfig;
-import com.getui.gs.sdk.GsManager;
-
 import java.util.HashMap;
 import java.util.Map;
 
 import cn.kuaikuai.base.BaseApplication;
-import cn.kuaikuai.common.ChannelUtil;
 import cn.kuaikuai.common.LogUtils;
 import cn.kuaikuai.common.image.MemoryControl;
 import cn.kuaikuai.common.net.api.ApiManage;
@@ -61,9 +57,6 @@ public class MainApplication extends BaseApplication {
             screenHeight = dm.heightPixels;
             screenMin = (screenWidth > screenHeight) ? screenHeight : screenWidth;
             screenMax = (screenWidth < screenHeight) ? screenHeight : screenWidth;
-            // 个数初始化，配置GsConfig需放在初始化GsManager之前;
-            GsConfig.setInstallChannel(ChannelUtil.getUmengChannel(this));
-            GsManager.getInstance().init(this);
         }
         LogUtils.d(TAG + " onCreate cast time:" + (System.currentTimeMillis() - time));
     }

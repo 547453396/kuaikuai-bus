@@ -24,4 +24,16 @@
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <Button
+        android:id="@+id/btn_add"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/shape_theme_btn"
+        android:text="@string/btn_add_path"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
 </RelativeLayout>

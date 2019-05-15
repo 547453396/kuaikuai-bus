@@ -63,13 +63,14 @@ public class ApiManage {
      * 使用baseUrl初始化
      */
     public static void initApiManage(Context context, String baseUrl, Map<String, String> headers) {
+        if (builder == null){
+            builder = new Builder(context);
+        }
+        builder.headers(headers);
         if (sApimanage == null) {
             synchronized (ApiManage.class) {
                 if (sApimanage == null) {
                     ApiManage apiManage = new ApiManage();
-                    if (builder == null){
-                        builder = new Builder(context);
-                    }
                     builder.baseUrl(baseUrl);
                     Retrofit retrofit = builder.build();
                     apiManage.apiService = retrofit.create(ApiService.class);
@@ -77,7 +78,6 @@ public class ApiManage {
                 }
             }
         }
-        builder.headers(headers);
     }
 
     public static ApiManage getInstance() {

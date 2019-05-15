@@ -130,7 +130,7 @@ public class LoginPresenter {
                         Map<String, String> headers = new HashMap<>();
                         if (!TextUtils.isEmpty(UserAccountPreferences.getInstance(ctx).getToken())){
                             headers.put("bus-token", UserAccountPreferences.getInstance(ctx).getToken());
-                            ApiManage.initApiManage(ctx, ApiInterface.DEFAULT_BASE_URL, null);
+                            ApiManage.initApiManage(ctx, ApiInterface.DEFAULT_BASE_URL, headers);
                         }
                         getUserInfo();
                     }
@@ -172,7 +172,9 @@ public class LoginPresenter {
             public void onCompleted() {
                 UserAccountPreferences accountPreferences = UserAccountPreferences.getInstance(ctx);
                 if (loginBean != null) {
-
+                    if (loginView != null) {
+                        loginView.onLoginSucceed();
+                    }
                 } else {
                     accountPreferences.cleanUserInfo();
                     if (loginView != null) {

@@ -82,21 +82,21 @@ public class LoginPhoneActivity extends BaseActivity implements ILoginView {
             @Override
             public void onKeyboardStateChanged(int state) {
                 switch (state) {
-                    case KeyboardListenRelativeLayout.KEYBOARD_STATE_HIDE://软键盘隐藏
-                        llBottom.setVisibility(View.VISIBLE);
-                        mLoginOther.setVisibility(View.VISIBLE);
-                        mLoginLine.setVisibility(View.VISIBLE);
-                        break;
-                    case KeyboardListenRelativeLayout.KEYBOARD_STATE_SHOW://软键盘显示
-                        llBottom.setVisibility(View.INVISIBLE);
-                        mLoginOther.setVisibility(View.INVISIBLE);
-                        mLoginLine.setVisibility(View.INVISIBLE);
-                        break;
-                    default:
-                        llBottom.setVisibility(View.VISIBLE);
-                        mLoginOther.setVisibility(View.VISIBLE);
-                        mLoginLine.setVisibility(View.VISIBLE);
-                        break;
+//                    case KeyboardListenRelativeLayout.KEYBOARD_STATE_HIDE://软键盘隐藏
+//                        llBottom.setVisibility(View.VISIBLE);
+//                        mLoginOther.setVisibility(View.VISIBLE);
+//                        mLoginLine.setVisibility(View.VISIBLE);
+//                        break;
+//                    case KeyboardListenRelativeLayout.KEYBOARD_STATE_SHOW://软键盘显示
+//                        llBottom.setVisibility(View.INVISIBLE);
+//                        mLoginOther.setVisibility(View.INVISIBLE);
+//                        mLoginLine.setVisibility(View.INVISIBLE);
+//                        break;
+//                    default:
+//                        llBottom.setVisibility(View.VISIBLE);
+//                        mLoginOther.setVisibility(View.VISIBLE);
+//                        mLoginLine.setVisibility(View.VISIBLE);
+//                        break;
                 }
             }
         });
@@ -136,17 +136,17 @@ public class LoginPhoneActivity extends BaseActivity implements ILoginView {
     @OnClick(R.id.btn_login)
     protected void clickLoginPhone() {
         String phone = et_phone.getText().toString().trim().replaceAll(" ", "").replaceAll("\\+86", "");
-        String identity = et_identify_code.getText().toString().trim();
+//        String identity = et_identify_code.getText().toString().trim();
         if (TextUtils.isEmpty(phone)) {
             UtilsManager.Toast(mActivity, R.string.phoneCanNotNull);
             et_phone.requestFocus();
-        } else if (TextUtils.isEmpty(identity)) {
-            UtilsManager.Toast(mActivity, R.string.identityCanNotNull);
-            et_identify_code.requestFocus();
+//        } else if (TextUtils.isEmpty(identity)) {
+//            UtilsManager.Toast(mActivity, R.string.identityCanNotNull);
+//            et_identify_code.requestFocus();
         } else {
             if (UtilsManager.isPhoneNumberValid(phone)) {
                 loading.showLoading();
-                loginPresenter.loginWithPhone(phone, identity, from_task);
+                loginPresenter.loginWithPhone(phone, "", from_task);
             } else {
                 UtilsManager.Toast(mActivity, R.string.errorPhoneNum);
                 et_phone.requestFocus();
@@ -212,6 +212,7 @@ public class LoginPhoneActivity extends BaseActivity implements ILoginView {
     @Override
     public void onLoginSucceed() {
         loading.dismiss();
+        UtilsManager.Toast(mActivity, "登录成功");
         close();
     }
 
@@ -260,8 +261,8 @@ public class LoginPhoneActivity extends BaseActivity implements ILoginView {
         @Override
         public void afterTextChanged(Editable s) {
             String text = et_phone.getText().toString().trim();
-            if (!TextUtils.isEmpty(text) &&
-                    !TextUtils.isEmpty(et_identify_code.getText().toString().trim())) {
+            if (!TextUtils.isEmpty(text) /*&&
+                    !TextUtils.isEmpty(et_identify_code.getText().toString().trim())*/) {
                 btn_login.setClickable(true);
                 btn_login.setAlpha(1f);
             } else {
