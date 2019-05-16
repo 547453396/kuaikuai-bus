@@ -21,6 +21,9 @@
     <string name="sec">秒</string>
 
     <string name="btn_add_path">新增行程</string>
+    <string name="tx_line_path">线路</string>
+    <string name="tx_start_time">出发时间</string>
+    <string name="tx_seat">座位</string>
 
     <!--个人中心-->
     <string name="select_date_title">选择日期</string>

@@ -12,6 +12,7 @@ import cn.kuaikuai.common.image.ETImageView;
 import cn.kuaikuai.common.image.ETNetImageView;
 import cn.kuaikuai.trip.R;
 import cn.kuaikuai.trip.customview.ETIconButtonTextView;
+import cn.kuaikuai.trip.main.line.AddLineActivity;
 import cn.kuaikuai.trip.main.login.LoginPhoneActivity;
 import cn.kuaikuai.trip.main.login.LoginUtils;
 
@@ -48,6 +49,6 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.btn_add)
     protected void clickAdd() {
-        startActivity(new Intent(this, LoginPhoneActivity.class));
+        startActivity(new Intent(this, AddLineActivity.class));
     }
 }

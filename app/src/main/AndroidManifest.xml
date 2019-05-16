@@ -74,6 +74,10 @@
             android:windowSoftInputMode="stateHidden|adjustNothing" />
 
         <activity
+            android:name=".main.line.AddLineActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".main.login.LoginPhoneActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme_White" />

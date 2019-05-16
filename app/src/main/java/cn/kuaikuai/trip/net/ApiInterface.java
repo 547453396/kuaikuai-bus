@@ -28,5 +28,9 @@ public interface ApiInterface {
         String LOGIN_WX = "api/wx/login";
     }
 
+    interface LinePathApi {
+        String ROUTE_ADD = "route/add";
+    }
+
 }
 
