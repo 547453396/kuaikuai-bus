@@ -20,6 +20,7 @@ import cn.kuaikuai.trip.customview.ETIconButtonTextView;
 import cn.kuaikuai.trip.customview.LoadingView;
 import cn.kuaikuai.trip.main.line.presenter.PathPresenter;
 import cn.kuaikuai.trip.main.line.view.IPathView;
+import cn.kuaikuai.trip.model.bean.path.LineListBean;
 import cn.kuaikuai.trip.utils.UtilsManager;
 
 public class AddLineActivity extends BaseActivity implements IPathView {
@@ -39,6 +40,7 @@ public class AddLineActivity extends BaseActivity implements IPathView {
     TextView mTvTime;
 
     private PathPresenter pathPresenter;
+    private int page = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,7 @@ public class AddLineActivity extends BaseActivity implements IPathView {
         mTvTitle.setText(R.string.btn_add_path);
         mTvLine.setText("点击添加线路");
         mTvTime.setText("2019-5-16 09:00:00");
+        pathPresenter.getAllLinePath(page);
     }
 
     @Override
@@ -106,6 +109,16 @@ public class AddLineActivity extends BaseActivity implements IPathView {
         if (!TextUtils.isEmpty(msg)) {
             UtilsManager.Toast(mActivity, msg);
         }
+    }
+
+    @Override
+    public void onAllPathSucceed(LineListBean.DataEntity data) {
+
+    }
+
+    @Override
+    public void onAllPathFailed(String msg) {
+
     }
 
     @Override

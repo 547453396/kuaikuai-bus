@@ -15,80 +15,171 @@
         android:layout_below="@+id/title"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:paddingTop="60dp">
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp">
 
         <LinearLayout
             android:id="@+id/ll_path"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tx_line_path"
                 android:textColor="@color/color_333333"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_line"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="path"
-                android:gravity="right"
-                android:paddingLeft="10dp"
-                android:layout_weight="1"
-                android:textColor="@color/color_333333"
                 android:textSize="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingBottom="5dp"
+                android:paddingTop="20dp">
+
+                <ImageView
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/circle_start"/>
+
+                <TextView
+                    android:id="@+id/tv_line_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="6dp"
+                    android:text="江陵路地铁口"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_333333"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingBottom="20dp"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/circle_end"/>
+
+                <TextView
+                    android:id="@+id/tv_line_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="6dp"
+                    android:text="阿里、网易"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_333333"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
         </LinearLayout>
+
+        <View
+            android:background="@color/color_666666"
+            android:layout_width="match_parent"
+            android:layout_height="1px"/>
 
         <LinearLayout
             android:id="@+id/ll_time"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tx_start_time"
                 android:textColor="@color/color_333333"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_time"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="time"
-                android:gravity="right"
-                android:paddingLeft="10dp"
-                android:layout_weight="1"
-                android:textColor="@color/color_333333"
                 android:textSize="16dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="20dp">
+
+                <ImageView
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/circle_start"/>
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="6dp"
+                    android:text="6月2日 今天22:00"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_333333"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <RelativeLayout
-            android:id="@+id/rl_seat"
+        <View
+            android:background="@color/color_666666"
+            android:layout_width="match_parent"
+            android:layout_height="1px"/>
+
+        <LinearLayout
+            android:id="@+id/ll_seat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tx_seat"
+                android:text="@string/tx_start_time"
                 android:textColor="@color/color_333333"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+                android:textSize="16dp"/>
 
-        </RelativeLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="20dp">
+
+                <ImageView
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:src="@drawable/circle_start"/>
+
+                <TextView
+                    android:id="@+id/tv_seat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="6dp"
+                    android:text="副驾驶，后排1"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_333333"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:background="@color/color_666666"
+            android:layout_width="match_parent"
+            android:layout_height="1px"/>
 
     </LinearLayout>
 

@@ -30,6 +30,7 @@ public interface ApiInterface {
 
     interface LinePathApi {
         String ROUTE_ADD = "route/add";
+        String LINE_ALL = "line/getAll";
     }
 
 }
